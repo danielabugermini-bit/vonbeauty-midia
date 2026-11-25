@@ -90,8 +90,8 @@ def make_reel(bg_jpg, overlays, times, out_mp4, dur):
 
 async def build_26():
     d = OUT / "26nov"; shutil.rmtree(d, ignore_errors=True); d.mkdir(parents=True)
-    salav = vertical_crop("' + str(REF) + '/renders/s-024.jpg", 1300, d / "_bg_sala.jpg")
-    loungev = vertical_crop("' + str(REF) + '/renders/r-014.jpg", 350, d / "_bg_lounge.jpg")
+    salav = vertical_crop(REF / "renders/s-024.jpg", 1300, d / "_bg_sala.jpg")
+    loungev = vertical_crop(REF / "renders/r-014.jpg", 350, d / "_bg_lounge.jpg")
     async with async_playwright() as p:
         b = await p.chromium.launch(executable_path="/usr/bin/google-chrome", args=["--allow-file-access-from-files"])
         pg = await b.new_page(viewport={"width": 1080, "height": 1920})
